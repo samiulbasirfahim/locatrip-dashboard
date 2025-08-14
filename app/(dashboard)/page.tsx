@@ -1,7 +1,22 @@
 import { ChartRevenue } from "@/components/common/chart-revenue";
+import ChartUserGrowth from "@/components/common/chart-user-growth";
 import { StatCard } from "@/components/common/stat-card";
 import { H3 } from "@/components/ui/typography";
-import { RevenueChartData } from "@/types/chart";
+import { RevenueChartData, UserGrowthChartData } from "@/types/chart";
+
+const userGrowthData: UserGrowthChartData = [
+    { month: "January", value: 23 },
+    { month: "February", value: 45 },
+    { month: "March", value: 56 },
+    { month: "April", value: 34 },
+    { month: "May", value: 67 },
+    { month: "June", value: 78 },
+    { month: "July", value: 89 },
+    { month: "August", value: 54 },
+    { month: "September", value: 61 },
+    { month: "October", value: 72 },
+    { month: "November", value: 80 },
+];
 
 const revenueData: RevenueChartData = [
     { month: "", revenue: 0 },
@@ -19,7 +34,7 @@ const revenueData: RevenueChartData = [
 
 const HomePage = () => {
     return (
-        <div className="space-y-4">
+        <div className="space-y-8">
             <div className="grid grid-cols-4 gap-4">
                 <StatCard
                     label="Total User"
@@ -57,7 +72,7 @@ const HomePage = () => {
 
             <div>
                 <H3 className="mb-4">User Growth</H3>
-                <ChartRevenue chartData={revenueData} />
+                <ChartUserGrowth chartData={userGrowthData} />
             </div>
         </div>
     );

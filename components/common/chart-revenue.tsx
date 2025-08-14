@@ -37,6 +37,7 @@ export function ChartRevenue({ chartData }: { chartData: RevenueChartData }) {
                     tickLine={false}
                     axisLine={false}
                     tickMargin={8}
+                    tickCount={10}
                     tickFormatter={(value) => `$${value}`}
                 />
 
@@ -44,7 +45,8 @@ export function ChartRevenue({ chartData }: { chartData: RevenueChartData }) {
                     cursor={{
                         strokeWidth: 1,
                     }}
-                    content={<ChartTooltipContent indicator="line" />}
+                    
+                    content={<ChartTooltipContent indicator="line" hideLabel/>}
                 />
 
                 <Area
