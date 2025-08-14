@@ -3,7 +3,15 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
-import { ChevronsUpDown, PanelLeftIcon } from "lucide-react";
+import {
+  ArrowDown,
+  ChevronDown,
+  ChevronsDown,
+  ChevronsUp,
+  ChevronsUpDown,
+  ChevronUp,
+  PanelLeftIcon,
+} from "lucide-react";
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
@@ -27,12 +35,7 @@ import {
 import { LinkType } from "@/types/sidebar";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "./collapsible";
-import path from "path";
+import { Collapsible, CollapsibleContent } from "./collapsible";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -731,7 +734,6 @@ function SidebarMenuLink({
           href={href}
           onClick={() => {
             setExpanded((prev) => !prev);
-            console.log("MEWS");
           }}
         >
           <div className="flex items-center justify-start gap-2 cursor-pointer p- p-3 w-full">
@@ -748,14 +750,29 @@ function SidebarMenuLink({
                 setExpanded((prev) => !prev);
               }}
             >
-              <ChevronsUpDown className="w-5 font-thin" strokeWidth={1} />
+              {isExpanded ? (
+                <ChevronDown className="w-5 font-thin" strokeWidth={1} />
+              ) : (
+                <ChevronUp className="w-5 font-thin" strokeWidth={1} />
+              )}
             </span>
           </div>
         </Link>
         <CollapsibleContent>
           <ul className="grid px-3 pb-3 gap-3">
-            {props.children.map((link) => (
-              <Link href={link.href} className="bg-accent/40 p-2 rounded-md">
+            {props.children.map((link, i) => (
+              <Link
+                key={i}
+                href={link.href}
+                className={cn(
+                  "p-2 rounded-md",
+                  isActive
+                    ? pathname === link.href
+                      ? "bg-accent/40"
+                      : "bg-accent/10"
+                    : "bg-muted-background",
+                )}
+              >
                 {link.title}
               </Link>
             ))}

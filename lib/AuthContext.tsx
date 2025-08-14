@@ -1,18 +1,28 @@
 "use client";
-import { ReactNode, useState } from "react";
+import { ReactNode, useState, createContext, useContext } from "react";
 
 import React from "react";
-import { createContext } from "vm";
 type User = {};
 type AuthContextType = {
-    User: null | User;
-    setUser: (user: User) => void;
+  user: null | User;
+  setUser: (user: User) => void;
 };
 
-const AuhtContext = createContext(undefined)
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export default function AuthProvider({ children }: { children: ReactNode }) {
-    const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<User | null>({});
 
-
+  return (
+    <AuthContext.Provider value={{ user, setUser }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
+
+export const useAuth = () => {
+  const context = useContext(AuthContext);
+  if (!context)
+    throw new Error("useAuth has to be used within <AuthContext.Provider>");
+  return context;
+};

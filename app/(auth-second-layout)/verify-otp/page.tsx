@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/input-otp";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { H1, P } from "shadcn-typography";
+import { H1, P } from "@/components/ui/typography";
 
 const ForgetPasswordPage = () => {
     const [value, setValue] = useState<string>("");
@@ -21,7 +21,7 @@ const ForgetPasswordPage = () => {
     return (
         <div className="flex-1 flex justify-center flex-col items-center">
             <div className="max-w-xl w-full space-y-8">
-                <div className="flex flex-col items-center font-roboto pb-8 w-full gap-4">
+                <div className="flex flex-col items-center font-sans pb-8 w-full gap-4">
                     <H1 className="to-black from-primary bg-linear-to-r bg-clip-text text-transparent mb-0">
                         Verify Your Identity
                     </H1>

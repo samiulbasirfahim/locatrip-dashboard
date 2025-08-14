@@ -5,14 +5,14 @@ import Input from "@/components/common/input";
 import PasswordInput from "@/components/common/input-password";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { H1, P } from "shadcn-typography";
+import { H1, P } from "@/components/ui/typography";
 import Image from "next/image";
 
 const RegisterPage = () => {
     return (
         <div className="flex items-center justify-center">
             <div className="space-y-4 max-w-lg w-full flex flex-col items-center">
-                <div className="flex flex-col items-center font-roboto pb-8">
+                <div className="flex flex-col items-center font-sans pb-8">
                     <H1 className="to-black from-primary bg-linear-to-r bg-clip-text text-transparent mb-0">
                         Create an account
                     </H1>
@@ -51,7 +51,7 @@ const RegisterPage = () => {
 
                     <Button
                         size="lg"
-                        className="w-full h-12 text-xl font-bold font-roboto cursor-pointer rounded-2xl"
+                        className="w-full h-12 text-xl font-bold font-sans cursor-pointer rounded-2xl"
                     >
                         Log In
                     </Button>

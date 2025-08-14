@@ -2,7 +2,7 @@
 import Input from "@/components/common/input";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { H1, P } from "shadcn-typography";
+import { H1, P } from "@/components/ui/typography";
 
 import { useRouter } from "next/navigation";
 
@@ -17,7 +17,7 @@ const ForgetPasswordPage = () => {
                     router.push("/verify-otp");
                 }}
             >
-                <div className="flex flex-col items-center font-roboto pb-8 w-full gap-4">
+                <div className="flex flex-col items-center font-sans pb-8 w-full gap-4">
                     <H1 className="to-black from-primary bg-linear-to-r bg-clip-text text-transparent mb-0">
                         Veify Your Identity
                     </H1>
@@ -39,7 +39,7 @@ const ForgetPasswordPage = () => {
                 <Link href={"/verify-otp"}>
                     <Button
                         size="lg"
-                        className="w-full h-12 text-xl font-bold font-roboto cursor-pointer rounded-2xl"
+                        className="w-full h-12 text-xl font-bold font-sans cursor-pointer rounded-2xl"
                     >
                         Log In
                     </Button>

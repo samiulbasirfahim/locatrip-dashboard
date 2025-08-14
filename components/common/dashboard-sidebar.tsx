@@ -10,6 +10,7 @@ import {
   SidebarMenuLink,
 } from "../ui/sidebar";
 import {
+    ChartNoAxesCombined,
   CreditCard,
   LayoutDashboard,
   Settings,
@@ -34,6 +35,12 @@ const links: LinkType[] = [
       { title: "Preference", href: "/management/preference" },
       { title: "Events", href: "/management/events" },
     ],
+  },
+  {
+      icon: ChartNoAxesCombined,
+      title: "Analytics & Reports",
+      href: "/analytics-&-reports",
+      children: []
   },
   {
     icon: CreditCard,
