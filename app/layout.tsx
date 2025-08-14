@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { Geist_Mono, Inter } from "next/font/google";
+import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 import AuthProvider from "@/lib/AuthContext";
 
 const inter = Inter({
   variable: "--font-inter",
+});
+
+const space_grotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -21,7 +25,7 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en">
         <body
-          className={`${inter.variable} antialiased`}
+          className={`${inter.variable} ${space_grotesk.variable} antialiased`}
         >
           {children}
         </body>
