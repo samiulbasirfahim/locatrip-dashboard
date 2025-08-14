@@ -13,7 +13,7 @@ function InputOTP({
 }: React.ComponentProps<typeof OTPInput> & {
     containerClassName?: string;
 }) {
-    const inputRef = React.useRef(null);
+    const inputRef = React.useRef<HTMLInputElement | null>(null);
 
     React.useEffect(() => {
         inputRef.current?.focus();

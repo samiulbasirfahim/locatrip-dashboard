@@ -72,7 +72,7 @@ const LoginPage = () => {
         </div>
 
         <Link href={"/register"} className="mt-4">
-          Don't have an account? <span className="text-primary">Register</span>
+          Don&apos;t have an account? <span className="text-primary">Register</span>
         </Link>
       </div>
     </div>

@@ -4,32 +4,34 @@ import "./globals.css";
 import AuthProvider from "@/lib/AuthContext";
 
 const inter = Inter({
-  variable: "--font-inter",
+    variable: "--font-inter",
+    subsets: ["latin"],
 });
 
 const space_grotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+    variable: "--font-space-grotesk",
+    subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
-  title: "Travel Assistant",
-  description: "Blah Blah Blah",
+    title: "Travel Assistant",
+    description: "Blah Blah Blah",
 };
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode;
 }>) {
-  return (
-    <AuthProvider>
-      <html lang="en">
-        <body
-          className={`${inter.variable} ${space_grotesk.variable} antialiased`}
-        >
-          {children}
-        </body>
-      </html>
-    </AuthProvider>
-  );
+    return (
+        <AuthProvider>
+            <html lang="en">
+                <body
+                    className={`${inter.variable} ${space_grotesk.variable} antialiased`}
+                >
+                    {children}
+                </body>
+            </html>
+        </AuthProvider>
+    );
 }

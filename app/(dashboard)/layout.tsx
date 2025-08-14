@@ -7,21 +7,21 @@ import { usePathname, useRouter } from "next/navigation";
 import { ReactNode, useEffect } from "react";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
-  const { user } = useAuth();
-  const router = useRouter();
-  const pathname = usePathname();
+    const { user } = useAuth();
+    const router = useRouter();
+    const pathname = usePathname();
 
-  useEffect(() => {
-    if (!user) router.push(`/login?redirect_from=${pathname}`);
-  }, [user]);
+    useEffect(() => {
+        if (!user) router.push(`/login?redirect_from=${pathname}`);
+    });
 
-  return (
-    <SidebarProvider>
-      <DashboardSidebar />
-      <div className="w-full min-h-screen flex flex-col">
-        <DashboardHeader />
-        <div className="flex-1 flex flex-col p-4">{children}</div>
-      </div>
-    </SidebarProvider>
-  );
+    return (
+        <SidebarProvider>
+            <DashboardSidebar />
+            <div className="w-full min-h-screen flex flex-col">
+                <DashboardHeader />
+                <div className="flex-1 flex flex-col p-4">{children}</div>
+            </div>
+        </SidebarProvider>
+    );
 }
