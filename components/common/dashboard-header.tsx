@@ -18,7 +18,7 @@ export function DashboardHeader() {
     const dateObj = getDateObj();
 
     return (
-        <header className="p-4 class flex justify-between border-b-1 border-primary w-full">
+        <header className="px-4 py-2 sticky top-0 bg-background z-[50] class flex justify-between border-b-1 border-primary w-full">
             <div className="flex items-baseline gap-2 font-sans">
                 <H2>{dateObj.dayName}</H2>
                 <P className="text-muted-foreground">
@@ -32,52 +32,56 @@ export function DashboardHeader() {
                 >
                     <Bell className="w-full h-full text-primary" strokeWidth={2} />
                 </Link>
-                <DropdownMenu>
-                    <DropdownMenuTrigger>
-                        <div className="flex items-center gap-2 justify-between cursor-pointer">
-                            <Avatar className="rounded-full h-10 w-10">
-                                <AvatarImage
-                                    src="https://github.com/evilrabbit.png"
-                                    alt="@evilrabbit"
-                                    className=""
-                                />
-                                <AvatarFallback>user avatar</AvatarFallback>
-                            </Avatar>
-                            <ChevronDown className="w-6" />
-                        </div>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent>
-                        <DropdownMenuItem>
-                            <span
-                                className="flex items-center gap-2 cursor-pointer"
-                                onClick={() => {
-                                    setTimeout(() => {
-                                        setShowOpen(true);
-                                    }, 120);
-                                }}
-                            >
-                                <User />
-                                Profile
-                            </span>
-                        </DropdownMenuItem>
-                        <DropdownMenuItem>
-                            <Link href={"/logout"}>
-                                <span className="flex items-center gap-2">
-                                    <LogOut className="text-primary" />
-                                    Log Out
-                                </span>
+                <div className="flex items-center gap-2 justify-between">
+                    <DropdownMenu>
+                        <DropdownMenuTrigger className="cursor-pointer flex gap-2 items-center">
+                            <Link href={"/profile"}>
+                                <Avatar className="rounded-full h-10 w-10">
+                                    <AvatarImage
+                                        src="https://github.com/evilrabbit.png"
+                                        alt="@evilrabbit"
+                                        className=""
+                                    />
+                                    <AvatarFallback>user avatar</AvatarFallback>
+                                </Avatar>
                             </Link>
-                        </DropdownMenuItem>
-                    </DropdownMenuContent>
-                </DropdownMenu>
-                <ProfileModal
-                    showModal={showOpen}
-                    onClose={() => {
-                        setShowOpen(false);
-                        console.log("CLOSSING");
-                    }}
-                />
+
+                            <ChevronDown className="w-6" />
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent>
+                            <DropdownMenuItem>
+                                <span
+                                    className="flex items-center gap-2 cursor-pointer"
+                                    onClick={() => {
+                                        setTimeout(() => {
+                                            setShowOpen(true);
+                                        }, 120);
+                                    }}
+                                >
+                                    <User />
+                                    Profile
+                                </span>
+                            </DropdownMenuItem>
+                            <DropdownMenuItem>
+                                <Link href={"/logout"}>
+                                    <span className="flex items-center gap-2">
+                                        <LogOut className="text-primary" />
+                                        Log Out
+                                    </span>
+                                </Link>
+                            </DropdownMenuItem>
+                        </DropdownMenuContent>
+                    </DropdownMenu>
+                </div>
             </div>
+
+            <ProfileModal
+                showModal={showOpen}
+                onClose={() => {
+                    setShowOpen(false);
+                    console.log("CLOSSING");
+                }}
+            />
         </header>
     );
 }
