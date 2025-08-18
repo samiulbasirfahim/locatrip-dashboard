@@ -1,13 +1,4 @@
 "use client";
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-} from "@/components/ui/pagination";
 import { UserTable } from "@/components/common/user-table";
 import { UserMiniType } from "@/types/user";
 import { Search } from "lucide-react";
@@ -148,11 +139,11 @@ export default function AllUsersPage() {
     return (
         <div className="space-y-8">
             <div className="flex gap-6 h-12">
-                <div className="relative w-full h-full">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                <div className="relative w-full  max-w-2xl h-full">
+                    <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                     <Input
-                        placeholder="Search ..."
-                        className="pl-10 bg-muted-background h-full"
+                        placeholder="Search..."
+                        className="pl-12 bg-muted-background h-full rounded-4xl border-none"
                     />
                 </div>
                 <Select defaultValue="all" onValueChange={(select_input) => { }}>
@@ -167,31 +158,7 @@ export default function AllUsersPage() {
                     </SelectContent>
                 </Select>
             </div>
-            <UserTable users={users} />
-            <Pagination>
-                <PaginationContent>
-                    <PaginationItem>
-                        <PaginationPrevious href="#" />
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink href="#">1</PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink href="#" isActive>
-                            2
-                        </PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationLink href="#">3</PaginationLink>
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationEllipsis />
-                    </PaginationItem>
-                    <PaginationItem>
-                        <PaginationNext href="#" />
-                    </PaginationItem>
-                </PaginationContent>
-            </Pagination>
+            <UserTable users={users} showPagination={true} />
         </div>
     );
 }
