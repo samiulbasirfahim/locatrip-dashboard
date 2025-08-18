@@ -14,7 +14,6 @@ import {
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination";
-import { UserMiniType } from "@/types/user";
 import {
     Table,
     TableBody,
@@ -24,10 +23,7 @@ import {
     TableRow,
 } from "../ui/table";
 import { Switch } from "../ui/switch";
-import { useState } from "react";
-import PreferenceModal from "./preference-modal";
 import { Preference } from "@/app/(dashboard)/management/preference/page";
-import { ConfirmationDialog } from "./confirmation-dialog";
 
 type Props = {
     preferences: Preference[];

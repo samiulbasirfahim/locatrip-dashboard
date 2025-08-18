@@ -35,10 +35,10 @@ export function UserTable({
   showPagination: false;
 }) {
   return (
-    <div className="shadow-sm shadow-black/20 rounded-lg overflow-hidden">
+    <div className=" overflow-hidden">
       <Table className="rounded-xl">
         <TableHeader>
-          <TableRow className="bg-muted-background h-12 hover:bg-muted-background text-base">
+          <TableRow className="bg-muted-background h-12 hover:bg-muted-background">
             <TableHead className="text-muted-foreground w-1/2">
               User Name
             </TableHead>

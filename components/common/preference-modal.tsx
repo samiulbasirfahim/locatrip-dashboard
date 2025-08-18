@@ -54,9 +54,11 @@ export default function PreferenceModal({
             <DialogContent className="max-w-xl">
                 <DialogTitle className="flex items-start gap-1 justify-between w-auto flex-col">
                     <div>
-                        <H3 className="mb-0">Add Preference</H3>
+                        <H3 className="mb-0">
+                            {selectedPref === null ? "Add " : "Edit"} Preference
+                        </H3>
                         <P className="!mt-0 text-muted-foreground">
-                            Create a new preference option within a category.
+                            {selectedPref === null ? "Add a new " : "Edit "}preference option within a category.
                         </P>
                     </div>
                 </DialogTitle>
