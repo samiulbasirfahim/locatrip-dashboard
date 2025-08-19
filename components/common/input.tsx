@@ -10,7 +10,7 @@ type Props = {
 
 const Input = ({ label, id, ...props }: Props) => {
     return (
-        <div className="grid w-full items-center gap-1">
+        <div className="grid w-full items-center gap-2">
             <Label htmlFor={id}>
                 {label}
             </Label>
