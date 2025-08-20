@@ -1,7 +1,7 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-import { H1, H2, P } from "@/components/ui/typography";
+import { H2, P } from "@/components/ui/typography";
 import { Trash2 } from "lucide-react";
 import { useState } from "react";
 
@@ -138,7 +138,9 @@ export default function Page() {
           ))}
 
       {!isEditing && terms.length < 1 && (
-        <H1>Please start create some terms & policies first</H1>
+        <P className="text-primary text-center">
+          Please start create some terms & policies first
+        </P>
       )}
     </div>
   );
