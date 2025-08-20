@@ -32,7 +32,7 @@ export function UserTable({
   showPagination,
 }: {
   users: UserMiniType[];
-  showPagination: false;
+  showPagination: boolean;
 }) {
   return (
     <div className=" overflow-hidden">

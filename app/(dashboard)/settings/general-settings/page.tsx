@@ -1,25 +1,15 @@
 "use client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Button } from "@/components/ui/button";
 import Input from "@/components/common/input";
-import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Switch } from "@/components/ui/switch";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Eye, EyeOff, Edit } from "lucide-react";
+import { Edit } from "lucide-react";
 import PasswordInput from "@/components/common/input-password";
-export default function EditProfile({ }: {}) {
-    const [showCurrentPassword, setShowCurrentPassword] = useState(false);
-    const [showNewPassword, setShowNewPassword] = useState(false);
-    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [twoFactorEnabled, setTwoFactorEnabled] = useState(true);
-    const [newBookingNotifications, setNewBookingNotifications] = useState(true);
-    const [callTransferAlerts, setCallTransferAlerts] = useState(true);
-
+export default function EditProfile() {
     const [profileData, setProfileData] = useState({
         fullName: "Pappu Roy",
         email: "pappyroy6393@gmail.com",
-        number: "+88 01405366393",
     });
 
     const [passwordData, setPasswordData] = useState({
@@ -27,6 +17,25 @@ export default function EditProfile({ }: {}) {
         newPassword: "",
         confirmPassword: "",
     });
+
+    function handleProfileDataChange(event: ChangeEvent<HTMLInputElement>) {
+        const { name, value } = event.target;
+        setProfileData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    }
+
+    function handlePasswordChange(event: ChangeEvent<HTMLInputElement>) {
+        const { name, value } = event.target;
+        setPasswordData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    }
+
+    console.log(profileData);
+    console.log(passwordData);
 
     return (
         <section className="w-full pb-8">
@@ -78,9 +87,11 @@ export default function EditProfile({ }: {}) {
                                         <Input
                                             label="Full Name"
                                             type="text"
-                                            id="name"
-                                            name="name"
+                                            id="fullName"
+                                            name="fullName"
                                             placeholder="Enter your name"
+                                            value={profileData.fullName}
+                                            onChange={handleProfileDataChange}
                                         />
                                         <Input
                                             label="Email"
@@ -88,6 +99,8 @@ export default function EditProfile({ }: {}) {
                                             id="email"
                                             name="email"
                                             placeholder="Enter your email"
+                                            value={profileData.email}
+                                            onChange={handleProfileDataChange}
                                         />
                                     </div>
 
@@ -107,20 +120,26 @@ export default function EditProfile({ }: {}) {
                                     <div className="space-y-6">
                                         <PasswordInput
                                             label="Current Password"
-                                            name="current-password"
-                                            id="current-password"
+                                            name="currentPassword"
+                                            id="currentPassword"
+                                            value={passwordData.currentPassword}
+                                            onChange={handlePasswordChange}
                                         />
 
                                         <PasswordInput
                                             label="New Password"
-                                            name="new-password"
-                                            id="new-password"
+                                            name="newPassword"
+                                            id="newPassword"
+                                            value={passwordData.newPassword}
+                                            onChange={handlePasswordChange}
                                         />
 
                                         <PasswordInput
                                             label="Confirm New Password"
-                                            name="confirm-new-password"
-                                            id="confirm-new-password"
+                                            name="confirmPassword"
+                                            id="confirmPassword"
+                                            value={passwordData.confirmPassword}
+                                            onChange={handlePasswordChange}
                                         />
                                     </div>
 
