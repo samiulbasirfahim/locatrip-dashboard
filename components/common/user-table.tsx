@@ -35,7 +35,7 @@ export function UserTable({
   showPagination: boolean;
 }) {
   return (
-    <div className=" overflow-hidden">
+    <div className="overflow-hidden">
       <Table className="rounded-xl">
         <TableHeader>
           <TableRow className="bg-muted-background h-12 hover:bg-muted-background">
